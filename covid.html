@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Programa de diagnóstico COVID-19</title>
+</head>
+<body>
+	<h1>Diagnóstico Rapido Sars-Cov COVID-19</h1>
+	<form>
+		<label>¿Tienes temperatura mayor a 38 grados Celsius?</label><br>
+		<input type="radio" id="temperatura-si" name="temperatura" value="si">
+		<label for="temperatura-si">Sí</label>
+		<input type="radio" id="temperatura-no" name="temperatura" value="no">
+		<label for="temperatura-no">No</label><br>
+
+		<label>¿Padeces de tos?</label><br>
+		<input type="radio" id="tos-si" name="tos" value="si">
+		<label for="tos-si">Sí</label>
+		<input type="radio" id="tos-no" name="tos" value="no">
+		<label for="tos-no">No</label><br>
+
+		<label>¿Tienes dolor de cabeza?</label><br>
+		<input type="radio" id="dolor-si" name="dolor" value="si">
+		<label for="dolor-si">Sí</label>
+		<input type="radio" id="dolor-no" name="dolor" value="no">
+		<label for="dolor-no">No</label><br>
+
+		<button type="button" onclick="diagnosticar()">Diagnosticar</button>
+	</form>
+	
+	<p id="resultado"></p>
+	
+	<script>
+		function diagnosticar() {
+			// Obtener los valores seleccionados de los radiobutton
+			var temperatura = document.querySelector('input[name="temperatura"]:checked').value;
+			var tos = document.querySelector('input[name="tos"]:checked').value;
+			var dolor = document.querySelector('input[name="dolor"]:checked').value;
+
+			// Verificar si el diagnóstico es positivo o negativo
+			if (temperatura == "si" && tos == "si" && dolor == "si") {
+				document.getElementById("resultado").innerHTML = "<h3>Posible Positivo</h3>";
+			} else {
+				document.getElementById("resultado").innerHTML = "<h4>Posible Negativo :D</h4>";
+			}
+		}
+	</script>
+</body>
+</html>
